@@ -7,7 +7,5 @@ model = genai.GenerativeModel('gemini-pro')
 print("Created model!!")
 @app.route('/')
 def hello_world():
-    print("Making response")
     response = model.generate_content("Who will win Andhra Pradesh elections")
-    print("Obtained response")
     return response.text
