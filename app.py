@@ -20,10 +20,6 @@ llm = HuggingFaceHub(
 )
 
 
-
-
-print(response)
-
 @app.route('/', methods=['POST'])
 def bot_prompt():
     query = request.json.get('message')
