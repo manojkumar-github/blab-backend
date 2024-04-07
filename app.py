@@ -10,4 +10,4 @@ def hello_world():
     print("Making response")
     response = model.generate_content("Who will win Andhra Pradesh elections")
     print("Obtained response")
-    return "dummy"
+    return response.text
