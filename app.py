@@ -19,25 +19,24 @@ llm = HuggingFaceHub(
     model_kwargs={"temperature": 0.5, "max_length": 64,"max_new_tokens":512}
 )
 
-query = "What is capital of India and UAE?"
 
-prompt = f"""
- <|system|>
-You are an AI assistant that follows instruction extremely well.
-Please be truthful and give direct answers
-</s>
- <|user|>
- {query}
- </s>
- <|assistant|>
-"""
 
-response = llm.predict(prompt)
+
 print(response)
 
 @app.route('/', methods=['POST'])
 def bot_prompt():
-    prompt = request.json.get('message')
-    # https://blab-backend.onrender.com/prompt/foo
-    #response = model.generate_content("Who will win Andhra Pradesh elections")
-    return f'Echo {prompt}'
+    query = request.json.get('message')
+
+    prompt = f"""
+     <|system|>
+    You are an AI assistant that follows instruction extremely well.
+    Please be truthful and give direct answers
+    </s>
+     <|user|>
+     {query}
+     </s>
+     <|assistant|>
+    """
+    response = llm.predict(prompt)
+    return response
