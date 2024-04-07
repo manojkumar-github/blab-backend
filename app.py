@@ -6,6 +6,6 @@ app = Flask(__name__)
 #model = genai.GenerativeModel('gemini-pro')
 #print("Created model!!")
 @app.route('/prompt/<prompt>')
-def bot_prompt():
+def bot_prompt(prompt):
     #response = model.generate_content("Who will win Andhra Pradesh elections")
     return f'Echo {prompt}'
